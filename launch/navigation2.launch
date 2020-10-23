@@ -1,0 +1,5 @@
+<launch>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find pimouse_slam)/maps/test.yaml" output="screen" />
+  <include file="$(find pimouse_slam)/launch/amcl.launch" />
+  <include file="$(find pimouse_slam)/launch/move_base.launch" />
+</launch>
