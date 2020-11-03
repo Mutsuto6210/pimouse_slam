@@ -1,5 +1,11 @@
 <launch>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find pimouse_slam)/maps/test.yaml" output="screen" />
+ <!-- <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode" required="true">
+ #   <param name="frame_id" value="base_link" />
+ # </node> -->
+  <node pkg="tf" type="static_transform_publisher" name="stp_laser" args="0 0 0 0 0 0 base_link laser 100" />
+  <rosparam param="footprint" ns="/move_base/local_costmap">[[0.05,-0.2],[0.05,0.2],[-0.3,0.2],[-0.3,-0.2]]</rosparam>
+  <rosparam param="footprint" ns="/move_base/global_costmap">[[0.05,-0.2],[0.05,0.2],[-0.3,0.2],[-0.3,-0.2]]</rosparam>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find pimouse_slam)/maps/test4.yaml" output="screen" />
   <include file="$(find pimouse_slam)/launch/amcl.launch" />
   <include file="$(find pimouse_slam)/launch/move_base.launch" />
 </launch>

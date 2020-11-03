@@ -1,0 +1,7 @@
+<launch>
+ <!--  <rosparam param="footprint" ns="/move_base/local_costmap">[[0.05,-0.2],[0.05,0.2],[-0.3,0.2],[-0.3,-0.2]]</rosparam>
+ # <rosparam param="footprint" ns="/move_base/global_costmap">[[0.05,-0.2],[0.05,0.2],[-0.3,0.2],[-0.3,-0.2]]</rosparam>
+ # <node name="map_server" pkg="map_server" type="map_server" args="$(find pimouse_slam)/maps/test4.yaml" output="screen" />
+  #<include file="$(find pimouse_slam)/launch/amcl.launch" />  -->
+  <include file="$(find husky_navigation)/launch/move_base_mapless_demo.launch" />
+</launch>
